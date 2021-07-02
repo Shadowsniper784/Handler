@@ -1,0 +1,615 @@
+[
+   {
+      "name":"command",
+      "description":"Enables or disables a command for this guild",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"help",
+      "description":"Displays this bot's commands",
+      "category":"Help",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"language",
+      "description":"Displays or sets the language for this Discord server",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"prefix",
+      "description":"Displays or sets the prefix for the current guild",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"requiredrole",
+      "description":"Specifies what role each command requires.",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"slash",
+      "description":"Allows the bot developers to manage existing slash commands",
+      "category":"Development",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"add",
+      "description":"For admins to create their own info command",
+      "category":"Fun",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"admins",
+      "description":"Lists the admins",
+      "category":"Fun",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"apply",
+      "description":"Apply for staff",
+      "category":"Fallen Commands",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"carthe123",
+      "description":"Info on the realm creator",
+      "category":"Fallen Commands",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"fieldmarshalcream",
+      "description":"Info on the realm founder",
+      "category":"Fallen Commands",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"auto",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"hydraontopp",
+      "description":"Info on Hydra",
+      "category":"Fun",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"isbanned",
+      "description":"Tells you if a member is banned",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"shadowsniper784",
+      "description":"Info on my creator",
+      "category":"Fallen Commands",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"tyon_g",
+      "description":"Info on the Tyon_g",
+      "category":"Fallen Commands",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"listreplies",
+      "description":"List all the people that have applied for staff",
+      "category":"Fallen Commands",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"question",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"review",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"view",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"ban",
+      "description":"Ban a member",
+      "category":"Moderation",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"hasrole",
+      "description":"Checks who has a role or a specific member.",
+      "category":"Moderation",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"kick",
+      "description":"Kick a member",
+      "category":"Moderation",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"mute",
+      "description":"mutes a member",
+      "category":"Moderation",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"nick",
+      "description":"Nickname member",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"poll",
+      "description":"Make a poll",
+      "category":"Moderation",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"purge",
+      "description":"Delete some messages",
+      "category":"Moderation",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"clear",
+      "description":"Generates a tellraw command",
+      "category":"Fallen Commands",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"role",
+      "description":"Give a user a role",
+      "category":"Moderation",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"slowmode",
+      "description":"Sets the slowmode of a channel",
+      "category":"Moderation",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"unmute",
+      "description":"Unmute a member",
+      "category":"Moderation",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"banmodmail",
+      "description":"Bans a user from sending mod mail",
+      "category":"Moderation",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"respond",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"rr",
+      "description":"Add a role to a reaction role message",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"rrmsg",
+      "description":"Create a reaction role message",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"announce",
+      "description":"Announce something",
+      "category":"Fallen Commands",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"backup",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"blockedchannels",
+      "description":"Shows all blocked channels for the message detectors",
+      "category":"Fallen Info",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"execute",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"tellraw",
+      "description":"Generates a tellraw command",
+      "category":"Fallen Commands",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"commandlist",
+      "description":"Shows a list of commands",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"config",
+      "description":"Creates a config",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"afk",
+      "description":"Enables/disables car afk message",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"ig",
+      "description":"Enables/disables ig names channel",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"inviteannounce",
+      "description":"Enables/disables invites announcing",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"levelannounce",
+      "description":"Enables/disables levelannounce",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"lmao",
+      "description":"Enables/disables lmao",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"disabled",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"edit",
+      "description":"Edits a message",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"emoji",
+      "description":"Creates an emoji",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"export",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"filtered",
+      "description":"Tells you if a character is filtered for in game names",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"invites",
+      "description":"Shows your invites",
+      "category":"Fun",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"minesweeper",
+      "description":"Play a game of minesweeper",
+      "category":"Fun",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"topinv",
+      "description":"Shows invite leaderboard",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"gift",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"end",
+      "description":"Ends a giveaway",
+      "category":"Giveaway",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"start",
+      "description":"Giveaway",
+      "category":"Giveaway",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"reroll",
+      "description":"Rerolla a giveaway",
+      "category":"Giveaway",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"helper",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"invis",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"leavevc",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"ssay",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"leaderboard",
+      "description":"The leaderboard for levels",
+      "category":"Fun",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"rank",
+      "description":"Shows your level",
+      "category":"Fun",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"testlvl",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"link",
+      "description":"Enables/disables links",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"pause",
+      "description":"Pauses music",
+      "category":"Music",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"play",
+      "description":"Plays music",
+      "category":"Music",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"resume",
+      "description":"resumes music",
+      "category":"Music",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"realm",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"counter",
+      "description":"Creates a countdown",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"rick",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"setwelcome",
+      "description":"Sets the welcome channel",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"snipe",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"spamping",
+      "description":"Pings a member",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"setsuggestion",
+      "description":"Updates the suggestion channel",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"suggestion",
+      "description":"Updates the status of a suggestion",
+      "category":"Moderation",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"ticket",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"timer",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"typing",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"ad",
+      "description":"Make an advert with formatting",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"fixstorage",
+      "description":"Fixes ",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"channelid",
+      "description":"Information about the channel!",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"colour",
+      "description":"Change the colour of a role",
+      "category":"Moderation",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"docs",
+      "description":"Information about discord.js!",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"eval",
+      "description":"Evaluates a statement",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"botinvite",
+      "description":"The invite link for the bot",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"join",
+      "description":"Information about the channel!",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"leave",
+      "description":"Information about the channel!",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"make",
+      "description":"none",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"status",
+      "description":"Shows the status of members",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"ping",
+      "description":"A simple ping pong command!",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"•",
+      "description":"Reload commands",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"restart",
+      "description":"Information about the channel!",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"serverinfo",
+      "description":"Information about the server!",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"uptime",
+      "description":"Shows the uptime of the bot",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"userinfo",
+      "description":"Information on a user",
+      "category":"Utility",
+      "expectedArgs":"none",
+      "done": true
+   },
+   {
+      "name":"youtube",
+      "description":"Updates the Youtube notif channel",
+      "category":"Configuration",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"banuser",
+      "description":"Bans a member",
+      "category":"Utility",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"emojiimage",
+      "description":"Emoji image command",
+      "category":"none",
+      "expectedArgs":"none"
+   },
+   {
+      "name":"say",
+      "description":"Say command",
+      "category":"none",
+      "expectedArgs":"none"
+   }
+]
