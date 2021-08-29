@@ -1,0 +1,35 @@
+[
+    {
+        "messageID": "881560187989819433",
+        "channelID": "838559371981488158",
+        "guildID": "838554125397524560",
+        "startAt": 1630250727427,
+        "endAt": 1630257927427,
+        "ended": false,
+        "winnerCount": 1,
+        "prize": "3 Months YT Premium!",
+        "messages": {
+            "giveaway": "🎉🎉 **GIVEAWAY** 🎉🎉",
+            "giveawayEnded": "🎉🎉 **GIVEAWAY ENDED** 🎉🎉",
+            "timeRemaining": "Time remaining: **{duration}**!",
+            "inviteToParticipate": "React with 🎉 to participate!",
+            "winMessage": "Congratulations, {winners}! You won **{prize}**!",
+            "embedFooter": "Giveaways",
+            "noWinner": "Giveaway cancelled, no valid participants.",
+            "hostedBy": "Hosted by: {user}",
+            "winners": "winner(s)",
+            "endedAt": "Ended at",
+            "units": {
+                "seconds": "seconds",
+                "minutes": "minutes",
+                "hours": "hours",
+                "days": "days",
+                "pluralS": false
+            }
+        },
+        "hostedBy": "<@659742263399940147>",
+        "exemptPermissions": [],
+        "bonusEntries": "[]",
+        "winnerIDs": []
+    }
+]

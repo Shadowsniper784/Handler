@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const MessageEmbed = require('./embed');
 const Util = {
 	getMethodsAndProperties: function(obj, filter) {
 		let properties = new Set();
@@ -38,7 +37,7 @@ const Util = {
 			.setThumbnail(
 				'https://cdn.mee6.xyz/guild-images/775532319695306803/4dfb242b6ba6c9e3647d58f936f58c04b792025115a816e23e687b774adc6956.png'
 			);
-		return embed.toJSON();
+		return embed
 	},
 	isIgn: function(channel) {
 		const name = channel.name ? channel.name.toLowerCase() : '';
@@ -175,7 +174,6 @@ const Util = {
 		add(obj.seconds, 'second');
 		return txt;
 	},
-	embed: MessageEmbed,
 	rand: function(min, max, inclusive = true) {
 		const amount = inclusive ? 1 : 0;
 		return Math.random() * (max - min + amount) + min;
@@ -215,6 +213,42 @@ const Util = {
 		};
 		*/
 		return embed
+	},
+	invitesv12: function(guild) {
+	  
+	  let map = guild.fetchInvites().then(invites =>
+            {
+                const invitesArray = invites.array()
+                let invitesMap = new Discord.Collection()
+                for(let i=0; i < invitesArray.length; i++)
+                {
+                    let invite = invitesArray[i];
+                    let inviter = invite.inviter || 'unknown'
+                    if(inviter.client) inviter.client = {}
+                    let uses = invite['uses']
+                    let current = invitesMap.has(inviter) ? invitesMap.get(inviter) + uses : uses
+                    invitesMap.set(inviter, current)
+                }
+                     return invitesMap
+            }
+        )
+    return map
+	},
+	invites: async function(guild) {
+    const invites = await guild.invites.fetch()
+  //0  console.log(invites)
+	  const guildInvites = {
+	    
+	  }
+	 invites.forEach(invite=>{
+	    const inviter = invite.inviter
+	    const tag = `${inviter.username}#${inviter.discriminator}`
+	    if(guildInvites[tag] == undefined) guildInvites[tag] = 0
+	    guildInvites[tag] += invite.uses
+	    })
+  
+	    return guildInvites
 	}
-};
+	}
+
 module.exports = Util;

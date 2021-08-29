@@ -1,13 +1,14 @@
-/**
- * @param {string} dir - The directory to get all files from
- * @returns [[filePath, fileName], [filePath, fileName]] - an array of all the files 
- */ 
-
-
-
 const path = require('path');
 const fs = require('fs')
 const { Dirent } = fs;
+
+/**
+ * @param {string} dir - The directory to get all files from
+ * @returns {Array.<{filePath: String, fileName: String}>} files - an array of all the files 
+ * @example 
+ */ 
+
+
 const getAllFiles = dir => {
 	const files = fs.readdirSync(dir, {
 		withFileTypes: true

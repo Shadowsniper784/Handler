@@ -19,7 +19,7 @@ const mongo = async (
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
-    ...dbOptions,
+ //   ...dbOptions,
   });
 
   const { connection } = mongoose;

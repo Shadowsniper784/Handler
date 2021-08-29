@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const path = require('path');
 const fs = require('fs');
-const getAllFiles = require('./getallfiles');
+const getAllFiles = require('$src/getallfiles');
 const Discord = require('discord.js');
 
 /**
@@ -33,7 +33,7 @@ class Feature {
 		for (const [file, fileName] of amount) {
 			this.registerFeature(require(file), fileName, instance, false);
 		}
-		console.log(
+	if(instance.logAmount)	console.log(
 			`Shadow Commands > Loaded ${amount.length} event${
 				amount.length === 1 ? '' : 's'
 			}`

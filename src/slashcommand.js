@@ -34,7 +34,6 @@ class SlashCommand {
         const command = name.toLowerCase();
         const guild = this.#client.guilds.cache.get(guild_id);
         const args = await this.getArrayFromOptions(guild, options);
-        console.log(args)
         if(guild.channels) {
         const channel = guild.channels.cache.get(channel_id);
         this.invokeCommand(interaction, command, args, member, guild, channel);
@@ -77,10 +76,10 @@ class SlashCommand {
 		}
 		return value;
 	}
-	async createAPIMessage(interaction, content) {
+	async createAPIMessage(client, interaction, content) {
 		const { data, files } = await APIMessage.create(
 			// @ts-ignore
-			this.#client.channels.resolve(interaction.channel_id),
+			client.channels.resolve(interaction.channel_id),
 			content
 		)
 			.resolveData()
@@ -126,8 +125,21 @@ class SlashCommand {
 		if (!command || !command.callback) {
 			return false;
 		}
-
-		let result = await command.callback({
+		let interactionResponse = {
+		  id: interaction.id
+		}
+		const sendContent = this.sendContent
+		const createAPIMessage = this.createAPIMessage
+		const client = this.#client
+		let hasReplied = false
+		interaction.reply = function(data, options={}) {
+		  if(!hasReplied) {
+		  sendContent(createAPIMessage, client, interaction, data, options)
+		  return hasReplied = true
+		  }
+		}
+		let subcommand = interaction.data.options.find(obj=>obj.type==1) 
+		let cmdresult = await command.callback({
 			member,
 			guild,
 			channel,
@@ -136,28 +148,48 @@ class SlashCommand {
 			text: options.join ? options.join(' ') : '',
 			client: this.#client,
 			instance: this.#instance,
-			interaction
-		});
-
+			interaction,
+			subcommand: {
+			  value: subcommand ? true : false,
+			  name: subcommand ? subcommand.name : undefined
+			}
+		})
+			if (!cmdresult) {
+			console.error(
+				`Shadow commands > Command "${commandName}" did not return any content from it's callback function. This is required as it is a slash command.`
+			);
+			return false;
+		}
+		let result= cmdresult.result
 		if (!result) {
 			console.error(
 				`Shadow commands > Command "${commandName}" did not return any content from it's callback function. This is required as it is a slash command.`
 			);
 			return false;
 		}
-
-		let data = {
+		if(!hasReplied) {
+		  await sendContent(createAPIMessage, client, interaction, result, cmdresult)
+		  hasReplied = true
+		}
+		return true;
+	}
+	send(interaction, result, options) {
+	  
+	}
+	async sendContent(createAPIMessage, client, interaction, result, options={}) {
+	  let data = {
 			content: result
 		};
 
 		// Handle embeds
 		if (typeof result === 'object') {
-			const embed = new MessageEmbed(result);
-			data = await this.createAPIMessage(interaction, embed);
+		  const embedResult = result.embed ? result.embed : embed
+			const embed = new MessageEmbed(embedResult);
+			data = await createAPIMessage(client, interaction, embed);
 		}
-
+		data.flags = options.userOnly ? 64 : null
 		// @ts-ignore
-		this.#client.api
+		client.api
 			// @ts-ignore
 			.interactions(interaction.id, interaction.token)
 			.callback.post({
@@ -166,8 +198,6 @@ class SlashCommand {
 					data
 				}
 			});
-
-		return true;
 	}
 }
 module.exports = SlashCommand

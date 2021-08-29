@@ -1,0 +1,12 @@
+{
+  "help":{
+    "all":{
+      "success": "Here's a list of all my commands:\n{COMMANDS}\nYou can send `{PREFIX}help [command name]` to get info on a specific command!",
+      "fail": "There was an error with the help command, please try again later!"
+    },
+    "specific":{
+      "success":"**Name:** {NAME}\n**Description:** {DESCRIPTION}\n**Usage:**{PREFIX}{NAME} {USAGE}\nCategory:{CATEGORY}",
+      "invalid":"that's not a valid command!"
+    }
+  }
+}

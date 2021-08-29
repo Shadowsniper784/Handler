@@ -18,10 +18,14 @@ let settings = {
   
 }
 const { EventEmitter } = require('events');
-const Feature = require('./feature');
-const Command = require('./command');
+const FeatureHandler = require('$src/feature');
+const Util = require('$src/Util')
+const mongo = require('$src/mongo')
+const CommandHandler = require('$src/basecommand')
+const SlashCommands = require('$src/slashcommandV13')
 const Discord = require('discord.js');
 const chalk = require('chalk');
+
 function l(text) {
 	console.log(chalk.hex('#32cd32').bold(text));
 }
@@ -45,8 +49,32 @@ class Shadow extends EventEmitter {
 	constructor(client, options) {
 		super();
 		this.client = client;
+		function evaluate(obj, value) {
+		  const evalued = obj != undefined ? obj : value
+//console.log('Value ' + obj + ' with a default of '+value+' was changed to ' + evalued)
+		  return evalued
+		  
+		}
 		//this._options = options;
-		let {
+		const _options ={
+			commandsDir: options.commandsDir  != undefined ? options.commandsDir : options.commandDir    != undefined  ? options.commandDir : 'commands',
+			featuresDir: options.featuresDir    != undefined  ? options.featuresDir : options.featureDir    != undefined  ? options.featureDir : 'features',
+			showWarns: evaluate(options.showWarns, true),
+			del: evaluate(options.del, -1),
+			defaultLanguage: 'english',
+			ignoreBots: evaluate(options.ignoreBots, true),
+			testServers: evaluate(options.testServers, []),
+			botOwners: evaluate(options.botOwners, []),
+			defaultPrefix: evaluate(options.prefix != undefined ? options.prefix : options.defaultPrefix, '!'),
+			logger: evaluate(options.logger, true),
+			disabledDefaultCommands: evaluate(options.disabledDefaultCommands, []),
+			colour: evaluate(options.colour, 'RED'),
+			logMessages: evaluate(options.logMessages, false),
+			mongoPath: evaluate(options.mongoPath, null),
+			mongoOptions: evaluate(options.mongoOptions, null)
+		}
+		options = _options
+		const {
 			commandsDir = 'commands',
 			commandDir = 'commands',
 			featuresDir = 'features',
@@ -64,7 +92,7 @@ class Shadow extends EventEmitter {
 			logMessages = false,
 			mongoPath,
 			mongoOptions
-		} = options;
+		} = options
 		this.featuresDir = featuresDir || featureDir;
 		this.commandsDir = commandsDir || commandDir;
 		this.defaultColour = colour;
@@ -79,12 +107,13 @@ class Shadow extends EventEmitter {
 				}
 			}
 		}
-		const mongo = require('./mongo')
+		this.storage = {
+		  snipes: new Discord.Collection()
+		}
 		if(mongoPath) this.mongoose = mongo(mongoPath, this, mongoOptions)
-		this.Util = require('./Util')
-		const CommandHandler = require('./basecommand')
-		const SlashCommands = require('./slashcommand')
+		this.logAmount = false
 		this.successColour = 'GREEN'
+		this.Util = Util
 		this.failColour = 'RED'
 		this.mongoPath = mongoPath
 		this.showWarns = showWarns;
@@ -95,11 +124,10 @@ class Shadow extends EventEmitter {
 		//Create features
 		this.SlashCommands = new SlashCommands(client, this)
 		this.CommandHandler = new CommandHandler(client, this);
-		this.FeatureHandler = new Feature(client, this, this.featuresDir);
+		this.FeatureHandler = new FeatureHandler(client, this, this.featuresDir);
 
 		settings = this
 		if (logger) {
-		  console.table({'help':{name: 'e', val: 'b'},'reload': {name: 'how', val: '2920'}})
 			console.log('Bot is ready!');
 			l('______________________________________________________');
 			l(`Bot Name: ${client.user.username}`);
@@ -133,6 +161,15 @@ class Shadow extends EventEmitter {
 			'Hey, i am powered by https://npmjs.com/discord-buttons',
 			btn
 		);
+	}
+	translate(txt, id) {
+	  const lang = require('../lang')
+	  const users = ['659073422332002334']
+	  if(users.includes(id))  return lang[txt].spanish
+	  else return lang[txt].english
+	}
+	isSpanish(id) {
+	  return ['659073422332002334'].includes(id)
 	}
 }
 module.exports = Shadow;

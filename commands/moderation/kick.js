@@ -1,16 +1,24 @@
 module.exports = {
-  guildOnly: true,
-  minArgs: 1,
-  expectedArgs: '<mention or id> [reason]',
-  userPermissions: 'KICK_MEMBERS',
+	name: 'kick',
+	userPermissions: 'KICK_MEMBERS',
+	botPermissions: 'KICK_MEMBERS',
+	description: 'Kick a member',
+	minArgs: 1,
+	category: 'Moderation',
+	maxArgs: -1,
+	expectedArgs: '<@member> [reason]',
   callback: ({ message, args }) => {
-    const user = message.mentions.users.first() || message.guild.members.fetch(args[0]).user
+    const user = message.mentions.users.first() || message.guild.members.cache.get(args[0]).user
     args.shift()
     const reason = args.join ? args.join(' ') : 'Kick command'
-    if(!user) return message.channel.send('Error: user not found')
+    if(!user) return message.channel.send(instance.translate('UNKNOWN_USER', message.author.id))
     else {
       user.kick(reason)
-      message.channel.send(`Sucessfully kicked ${user.tag} from ${message.guild.name}`)
+        const e=instance.translate('KICKED',message.author.id)
+         .replace(/\{user\}/gi, user.tag)
+         .replace(/\{guild\}/gi, message.guild.name)
+         .replace(/\{reason\}/gi, (reason == 'Kick command' ? '' : ` for ${reason}`))
+      message.send(e)
     }
   }
 }
